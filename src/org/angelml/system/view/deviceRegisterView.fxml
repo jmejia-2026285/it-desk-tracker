@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.URL?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+
+<StackPane prefHeight="720.0" prefWidth="1100.0" styleClass="root-pane" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1">
+   <stylesheets>
+      <URL value="@deviceRegisterStyle.css" />
+   </stylesheets>
+   <children>
+      <VBox spacing="24.0">
+         <padding>
+            <Insets bottom="32.0" left="32.0" right="32.0" top="32.0" />
+         </padding>
+         <children>
+            <HBox alignment="CENTER_LEFT" spacing="16.0">
+               <children>
+                  <HBox fx:id="logoBox" alignment="CENTER_LEFT" styleClass="logo-box">
+                     <children>
+                        <ImageView fitHeight="56.0" fitWidth="177.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../IT%20DeskTracker/Logotipos/files/01_logo_horizontal_fondo_oscuro.png" />
+                           </image>
+                        </ImageView>
+                     </children>
+                  </HBox>
+                  <Region HBox.hgrow="ALWAYS" />
+                  <StackPane styleClass="title-pill">
+                     <children>
+                        <Label styleClass="page-title" text="Registrar ingreso" />
+                     </children>
+                  </StackPane>
+               </children>
+            </HBox>
+            <HBox spacing="24.0" VBox.vgrow="ALWAYS">
+               <children>
+                  <VBox spacing="24.0" HBox.hgrow="ALWAYS">
+                     <children>
+                        <VBox spacing="16.0" styleClass="card" VBox.vgrow="ALWAYS">
+                           <children>
+                              <Label styleClass="section-title" text="Datos del dispositivo" />
+                              <GridPane hgap="16.0" vgap="16.0">
+                                 <columnConstraints>
+                                    <ColumnConstraints hgrow="ALWAYS" minWidth="10.0" percentWidth="50.0" />
+                                    <ColumnConstraints hgrow="ALWAYS" minWidth="10.0" percentWidth="50.0" />
+                                 </columnConstraints>
+                                 <children>
+                                    <VBox spacing="8.0" GridPane.columnIndex="0" GridPane.rowIndex="0">
+                                       <children>
+                                          <Label styleClass="field-label" text="Marca" />
+                                          <TextField fx:id="txtMarca" styleClass="glass-input" />
+                                       </children>
+                                    </VBox>
+                                    <VBox spacing="8.0" GridPane.columnIndex="1" GridPane.rowIndex="0">
+                                       <children>
+                                          <Label styleClass="field-label" text="Modelo" />
+                                          <TextField fx:id="txtModelo" styleClass="glass-input" />
+                                       </children>
+                                    </VBox>
+                                    <VBox spacing="8.0" GridPane.columnIndex="0" GridPane.columnSpan="2" GridPane.rowIndex="1">
+                                       <children>
+                                          <Label styleClass="field-label" text="Número de serie" />
+                                          <TextField fx:id="txtSerie" styleClass="glass-input" />
+                                       </children>
+                                    </VBox>
+                                    <VBox spacing="8.0" GridPane.columnIndex="0" GridPane.columnSpan="2" GridPane.rowIndex="2">
+                                       <children>
+                                          <Label styleClass="field-label" text="Problemática / falla" />
+                                          <TextField fx:id="txtProblematica" styleClass="glass-input" />
+                                       </children>
+                                    </VBox>
+                                    <VBox spacing="8.0" GridPane.columnIndex="0" GridPane.columnSpan="2" GridPane.rowIndex="3">
+                                       <children>
+                                          <Label styleClass="field-label" text="Diagnóstico inicial (no definitivo)" />
+                                          <TextArea fx:id="txaDiagnostico" prefHeight="96.0" prefRowCount="3" styleClass="glass-input" wrapText="true" />
+                                       </children>
+                                    </VBox>
+                                    <VBox spacing="8.0" GridPane.columnIndex="0" GridPane.columnSpan="2" GridPane.rowIndex="4">
+                                       <children>
+                                          <Label styleClass="field-label" text="Accesorios entregados" />
+                                          <TextArea fx:id="txaAccesorios" prefHeight="88.0" prefRowCount="3" styleClass="glass-input" wrapText="true" />
+                                       </children>
+                                    </VBox>
+                                 </children>
+                                 <rowConstraints>
+                                    <RowConstraints />
+                                    <RowConstraints />
+                                    <RowConstraints />
+                                    <RowConstraints />
+                                    <RowConstraints />
+                                 </rowConstraints>
+                              </GridPane>
+                              <HBox alignment="CENTER_RIGHT" spacing="16.0">
+                                 <children>
+                                    <Button fx:id="btnLimpiar" onAction="#onLimpiar" styleClass="btn-secondary" text="Limpiar" />
+                                 </children>
+                              </HBox>
+                           </children>
+                        </VBox>
+                     </children>
+                  </VBox>
+                  <VBox spacing="24.0" HBox.hgrow="ALWAYS">
+                     <children>
+                        <VBox spacing="16.0" styleClass="card">
+                           <children>
+                              <Label styleClass="section-title" text="Datos del usuario" />
+                              <GridPane hgap="16.0" vgap="16.0">
+                                 <columnConstraints>
+                                    <ColumnConstraints hgrow="ALWAYS" minWidth="10.0" percentWidth="50.0" />
+                                    <ColumnConstraints hgrow="ALWAYS" minWidth="10.0" percentWidth="50.0" />
+                                 </columnConstraints>
+                                 <children>
+                                    <VBox spacing="8.0" GridPane.columnIndex="0" GridPane.columnSpan="2" GridPane.rowIndex="0">
+                                       <children>
+                                          <Label styleClass="field-label" text="Nombre completo del usuario" />
+                                          <TextField fx:id="txtNombreUsuario" styleClass="glass-input" />
+                                       </children>
+                                    </VBox>
+                                    <VBox spacing="8.0" GridPane.columnIndex="0" GridPane.rowIndex="1">
+                                       <children>
+                                          <Label styleClass="field-label" text="Teléfono" />
+                                          <TextField fx:id="txtTelefono" styleClass="glass-input" />
+                                       </children>
+                                    </VBox>
+                                    <VBox spacing="8.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                                       <children>
+                                          <Label styleClass="field-label" text="Correo" />
+                                          <TextField fx:id="txtCorreo" styleClass="glass-input" />
+                                       </children>
+                                    </VBox>
+                                 </children>
+                                 <rowConstraints>
+                                    <RowConstraints />
+                                    <RowConstraints />
+                                 </rowConstraints>
+                              </GridPane>
+                           </children>
+                        </VBox>
+                        <VBox spacing="16.0" styleClass="card" VBox.vgrow="ALWAYS">
+                           <children>
+                              <Label styleClass="section-title" text="Agregar imagen (opcional)" />
+                              <StackPane fx:id="pnlPreview" styleClass="preview-zone" VBox.vgrow="ALWAYS">
+                                 <children>
+                                    <ImageView fx:id="imgPreview" fitHeight="220.0" fitWidth="340.0" pickOnBounds="true" preserveRatio="true" />
+                                    <Label fx:id="lblPreviewHint" styleClass="preview-hint" text="Haz clic para seleccionar una imagen" />
+                                 </children>
+                              </StackPane>
+                              <HBox alignment="CENTER_RIGHT" spacing="16.0">
+                                 <children>
+                                    <Button fx:id="btnLimpiarImagen" onAction="#onLimpiarImagen" styleClass="btn-secondary" text="Limpiar" />
+                                    <Button fx:id="btnRegistrar" onAction="#onRegistrar" styleClass="btn-primary" text="Registrar" />
+                                 </children>
+                              </HBox>
+                           </children>
+                        </VBox>
+                     </children>
+                  </VBox>
+               </children>
+            </HBox>
+         </children>
+      </VBox>
+   </children>
+</StackPane>

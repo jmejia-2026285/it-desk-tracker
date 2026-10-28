@@ -1,0 +1,162 @@
+.root-pane {
+    -fx-background-color:
+        radial-gradient(center 12% 8%, radius 55%, rgba(10,100,255,0.32), rgba(10,100,255,0.00) 100%),
+        radial-gradient(center 88% 10%, radius 50%, rgba(124,77,255,0.24), rgba(124,77,255,0.00) 100%),
+        radial-gradient(center 80% 90%, radius 55%, rgba(0,190,255,0.16), rgba(0,190,255,0.00) 100%),
+        radial-gradient(center 18% 92%, radius 45%, rgba(10,100,255,0.14), rgba(10,100,255,0.00) 100%),
+        linear-gradient(to bottom, #0B1220 0%, #0A101C 55%, #070C16 100%);
+    -fx-font-family: "Segoe UI", "SF Pro Display", "Helvetica Neue", Arial, sans-serif;
+    -fx-font-size: 12px;
+    -fx-text-base-color: #ffffff;
+    -fx-focus-color: #0A64FF;
+    -fx-faint-focus-color: rgba(10,100,255,0.00);
+}
+
+.logo-box {
+    -fx-background-color: transparent;
+    -fx-padding: 0;
+}
+
+.title-pill {
+    -fx-background-color: linear-gradient(to bottom, rgba(255,255,255,0.12), rgba(255,255,255,0.05));
+    -fx-background-radius: 30;
+    -fx-border-color: linear-gradient(to bottom, rgba(255,255,255,0.30), rgba(255,255,255,0.06));
+    -fx-border-radius: 30;
+    -fx-border-width: 1;
+    -fx-padding: 10 26 10 26;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.45), 24, 0.25, 0, 8);
+}
+
+.page-title {
+    -fx-text-fill: #ffffff;
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+}
+
+.section-title {
+    -fx-text-fill: #ffffff;
+    -fx-font-size: 15px;
+    -fx-font-weight: bold;
+}
+
+.field-label {
+    -fx-text-fill: rgba(255,255,255,0.65);
+    -fx-font-size: 12px;
+}
+
+.card {
+    -fx-background-color: linear-gradient(to bottom, rgba(255,255,255,0.10), rgba(255,255,255,0.04));
+    -fx-background-radius: 24;
+    -fx-border-color: linear-gradient(to bottom, rgba(255,255,255,0.28), rgba(255,255,255,0.06));
+    -fx-border-radius: 24;
+    -fx-border-width: 1;
+    -fx-padding: 24;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.55), 32, 0.25, 0, 10);
+}
+
+.glass-input {
+    -fx-background-color: rgba(255,255,255,0.08);
+    -fx-background-radius: 10;
+    -fx-border-color: rgba(255,255,255,0.10);
+    -fx-border-radius: 10;
+    -fx-border-width: 1;
+    -fx-padding: 8 12 8 12;
+    -fx-text-fill: #ffffff;
+    -fx-prompt-text-fill: rgba(255,255,255,0.40);
+    -fx-highlight-fill: rgba(10,100,255,0.45);
+    -fx-control-inner-background: transparent;
+}
+
+.glass-input:hover {
+    -fx-border-color: rgba(255,255,255,0.22);
+}
+
+.glass-input:focused {
+    -fx-border-color: #0A64FF;
+    -fx-effect: dropshadow(gaussian, rgba(10,100,255,0.50), 14, 0.20, 0, 0);
+}
+
+.glass-input .content {
+    -fx-background-color: transparent;
+    -fx-background-radius: 10;
+}
+
+.glass-input .text {
+    -fx-fill: #ffffff;
+    -fx-highlight-fill: rgba(10,100,255,0.45);
+}
+
+.glass-input .scroll-pane,
+.glass-input .scroll-pane .viewport,
+.glass-input .scroll-pane .content {
+    -fx-background-color: transparent;
+}
+
+.glass-input .scroll-bar:vertical,
+.glass-input .scroll-bar:horizontal {
+    -fx-background-color: transparent;
+}
+
+.glass-input .scroll-bar .thumb {
+    -fx-background-color: rgba(255,255,255,0.22);
+    -fx-background-radius: 6;
+}
+
+.btn-primary {
+    -fx-background-color: linear-gradient(to bottom, #2F80FF, #0A64FF);
+    -fx-background-radius: 20;
+    -fx-text-fill: #ffffff;
+    -fx-font-weight: bold;
+    -fx-font-size: 13px;
+    -fx-cursor: hand;
+    -fx-padding: 10 24 10 24;
+    -fx-min-width: 120;
+    -fx-effect: dropshadow(gaussian, rgba(10,100,255,0.55), 18, 0.30, 0, 4);
+}
+
+.btn-primary:hover {
+    -fx-background-color: linear-gradient(to bottom, #4A92FF, #1F76FF);
+    -fx-effect: dropshadow(gaussian, rgba(10,100,255,0.70), 22, 0.30, 0, 6);
+}
+
+.btn-primary:pressed {
+    -fx-background-color: linear-gradient(to bottom, #1F6FE8, #0A55D8);
+    -fx-effect: dropshadow(gaussian, rgba(10,100,255,0.35), 8, 0.30, 0, 2);
+}
+
+.btn-secondary {
+    -fx-background-color: rgba(255,255,255,0.10);
+    -fx-background-radius: 20;
+    -fx-border-color: rgba(255,255,255,0.18);
+    -fx-border-radius: 20;
+    -fx-border-width: 1;
+    -fx-text-fill: rgba(255,255,255,0.88);
+    -fx-font-size: 13px;
+    -fx-cursor: hand;
+    -fx-padding: 10 22 10 22;
+    -fx-min-width: 110;
+}
+
+.btn-secondary:hover {
+    -fx-background-color: rgba(255,255,255,0.18);
+    -fx-border-color: rgba(255,255,255,0.30);
+}
+
+.btn-secondary:pressed {
+    -fx-background-color: rgba(255,255,255,0.26);
+}
+
+.preview-zone {
+    -fx-background-color: rgba(255,255,255,0.04);
+    -fx-background-radius: 16;
+    -fx-border-color: rgba(255,255,255,0.25);
+    -fx-border-radius: 16;
+    -fx-border-width: 1;
+    -fx-border-style: segments(6, 8) line-cap round;
+    -fx-padding: 16;
+}
+
+.preview-hint {
+    -fx-text-fill: rgba(255,255,255,0.45);
+    -fx-font-size: 12px;
+}
