@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.URL?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+
+<StackPane prefHeight="600.0" prefWidth="800.0" styleClass="root-pane" fx:controller="org.angelml.system.controller.ImprimirTicketController" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
+   <stylesheets>
+      <URL value="@../resources/styles/styles.css" />
+   </stylesheets>
+   <children>
+      <VBox spacing="14.0">
+         <padding><Insets bottom="22.0" left="22.0" right="22.0" top="22.0" /></padding>
+         <children>
+            <HBox alignment="CENTER_LEFT" spacing="16.0">
+               <children>
+                  <StackPane styleClass="title-pill"><children><Label styleClass="page-title" text="Vista previa de impresión" /></children></StackPane>
+                  <Region HBox.hgrow="ALWAYS" />
+                  <Label fx:id="lblFolio" styleClass="section-title" />
+               </children>
+            </HBox>
+            <HBox fx:id="hbPreview" alignment="CENTER" spacing="16.0" VBox.vgrow="ALWAYS" />
+            <Label fx:id="lblInfo" styleClass="field-label" text="Se imprimen en una sola hoja carta horizontal: ticket del equipo a la izquierda y comprobante del cliente a la derecha." wrapText="true" />
+            <HBox alignment="CENTER_RIGHT" spacing="16.0">
+               <children>
+                  <Button fx:id="btnCancelar" cancelButton="true" onAction="#onCancelar" styleClass="btn-secondary" text="Cancelar" />
+                  <Button fx:id="btnImprimir" defaultButton="true" onAction="#onImprimir" styleClass="btn-primary" text="Imprimir" />
+               </children>
+            </HBox>
+         </children>
+      </VBox>
+   </children>
+</StackPane>

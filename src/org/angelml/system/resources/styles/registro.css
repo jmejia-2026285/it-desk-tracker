@@ -1,0 +1,12 @@
+.preview-zone {
+    -fx-background-color: rgba(255,255,255,0.04);
+    -fx-background-radius: 16;
+    -fx-border-color: rgba(255,255,255,0.25);
+    -fx-border-radius: 16;
+    -fx-border-width: 1;
+    -fx-border-style: segments(6, 8) line-cap round;
+    -fx-padding: 12;
+    -fx-cursor: hand;
+}
+.preview-zone:hover { -fx-border-color: rgba(10,100,255,0.85); }
+.preview-hint { -fx-text-fill: rgba(255,255,255,0.45); -fx-font-size: 12px; }

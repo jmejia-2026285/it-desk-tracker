@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.URL?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+
+<StackPane prefWidth="520.0" styleClass="root-pane" fx:controller="org.angelml.system.controller.RegTicketController" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
+   <stylesheets>
+      <URL value="@../resources/styles/styles.css" />
+   </stylesheets>
+   <children>
+      <VBox spacing="20.0">
+         <padding><Insets bottom="28.0" left="28.0" right="28.0" top="28.0" /></padding>
+         <children>
+            <StackPane styleClass="title-pill"><children><Label styleClass="page-title" text="Nuevo ticket" /></children></StackPane>
+            <VBox spacing="16.0" styleClass="card">
+               <children>
+                  <VBox spacing="8.0">
+                     <children>
+                        <Label styleClass="field-label" text="Dispositivo" />
+                        <ComboBox fx:id="cmbDispositivo" maxWidth="Infinity" promptText="Selecciona el dispositivo" styleClass="glass-input" />
+                     </children>
+                  </VBox>
+                  <VBox spacing="8.0">
+                     <children>
+                        <Label styleClass="field-label" text="Técnico asignado" />
+                        <ComboBox fx:id="cmbTecnico" maxWidth="Infinity" promptText="Selecciona el técnico" styleClass="glass-input" />
+                     </children>
+                  </VBox>
+                  <VBox spacing="8.0">
+                     <children>
+                        <Label styleClass="field-label" text="Descripción del servicio" />
+                        <TextArea fx:id="txaDescripcion" prefHeight="96.0" prefRowCount="3" styleClass="glass-input" wrapText="true" />
+                     </children>
+                  </VBox>
+                  <HBox alignment="CENTER_RIGHT" spacing="16.0">
+                     <children>
+                        <Button fx:id="btnCancelar" cancelButton="true" onAction="#onCancelar" styleClass="btn-secondary" text="Cancelar" />
+                        <Button fx:id="btnCrear" defaultButton="true" onAction="#onCrear" styleClass="btn-primary" text="Crear ticket" />
+                     </children>
+                  </HBox>
+               </children>
+            </VBox>
+         </children>
+      </VBox>
+   </children>
+</StackPane>

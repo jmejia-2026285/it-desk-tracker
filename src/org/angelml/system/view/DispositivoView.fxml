@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.URL?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+
+<StackPane fx:controller="org.angelml.system.controller.DispositivoController" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
+   <stylesheets>
+      <URL value="@../resources/styles/styles.css" />
+   </stylesheets>
+   <children>
+      <VBox spacing="20.0">
+         <padding><Insets bottom="28.0" left="28.0" right="28.0" top="28.0" /></padding>
+         <children>
+            <HBox alignment="CENTER_LEFT" spacing="16.0">
+               <children>
+                  <StackPane styleClass="title-pill"><children><Label styleClass="page-title" text="Dispositivos" /></children></StackPane>
+                  <Region HBox.hgrow="ALWAYS" />
+                  <Button fx:id="btnNuevo" onAction="#onNuevo" styleClass="btn-primary" text="Registrar ingreso" />
+               </children>
+            </HBox>
+            <HBox alignment="CENTER_LEFT" spacing="12.0">
+               <children>
+                  <TextField fx:id="txtBuscar" prefWidth="340.0" promptText="Buscar por código, folio, cliente, equipo o serie" styleClass="glass-input" />
+                  <ComboBox fx:id="cmbEstado" prefWidth="190.0" promptText="Todos los estados" styleClass="glass-input" />
+                  <Region HBox.hgrow="ALWAYS" />
+                  <Button fx:id="btnImprimir" onAction="#onImprimir" styleClass="btn-secondary" text="Imprimir tickets" />
+                  <Button fx:id="btnEditar" onAction="#onEditar" styleClass="btn-secondary" text="Editar" />
+                  <Button fx:id="btnEliminar" onAction="#onEliminar" styleClass="btn-danger" text="Eliminar" />
+               </children>
+            </HBox>
+            <VBox spacing="10.0" styleClass="card" VBox.vgrow="ALWAYS">
+               <children>
+                  <TableView fx:id="tblDispositivos" VBox.vgrow="ALWAYS">
+         <columns>
+            <TableColumn fx:id="colCodigo" prefWidth="80.0" text="CÓDIGO" />
+            <TableColumn fx:id="colFolio" prefWidth="115.0" text="FOLIO" />
+            <TableColumn fx:id="colTipo" prefWidth="105.0" text="TIPO" />
+            <TableColumn fx:id="colEquipo" prefWidth="185.0" text="EQUIPO" />
+            <TableColumn fx:id="colSerie" prefWidth="105.0" text="SERIE" />
+            <TableColumn fx:id="colCliente" prefWidth="170.0" text="CLIENTE" />
+            <TableColumn fx:id="colTelefono" prefWidth="90.0" text="TELÉFONO" />
+            <TableColumn fx:id="colIngreso" prefWidth="100.0" text="INGRESO" />
+            <TableColumn fx:id="colEstado" prefWidth="90.0" text="ESTADO" />
+         </columns>
+         <columnResizePolicy><TableView fx:constant="CONSTRAINED_RESIZE_POLICY" /></columnResizePolicy>
+      </TableView>
+                  <Label fx:id="lblConteo" styleClass="field-label" />
+               </children>
+            </VBox>
+         </children>
+      </VBox>
+   </children>
+</StackPane>

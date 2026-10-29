@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.URL?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+
+<StackPane prefHeight="720.0" prefWidth="480.0" styleClass="root-pane" fx:controller="org.angelml.system.controller.LoginController" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
+   <stylesheets>
+      <URL value="@../resources/styles/styles.css" />
+   </stylesheets>
+   <children>
+      <VBox alignment="CENTER" maxWidth="400.0" spacing="24.0">
+         <padding><Insets bottom="32.0" left="32.0" right="32.0" top="32.0" /></padding>
+         <children>
+            <ImageView fitWidth="250.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../resources/media/logos/01_logo_horizontal_fondo_oscuro.png" />
+               </image>
+            </ImageView>
+            <VBox spacing="16.0" styleClass="card">
+               <children>
+                  <Label fx:id="lblTitulo" styleClass="section-title" text="Iniciar sesión" />
+                  <Label fx:id="lblSubtitulo" styleClass="field-label" text="Ingresa con tu cuenta de técnico." wrapText="true" />
+                  <VBox spacing="8.0" fx:id="vbNombre" managed="false" visible="false">
+                     <children>
+                        <Label styleClass="field-label" text="Nombre completo" />
+                        <TextField fx:id="txtNombre" styleClass="glass-input" />
+                     </children>
+                  </VBox>
+                  <VBox spacing="8.0">
+                     <children>
+                        <Label styleClass="field-label" text="Correo" />
+                        <TextField fx:id="txtEmail" promptText="nombre@empresa.com" styleClass="glass-input" />
+                     </children>
+                  </VBox>
+                  <VBox spacing="8.0">
+                     <children>
+                        <Label styleClass="field-label" text="Contraseña" />
+                        <PasswordField fx:id="pwdPassword" styleClass="glass-input" />
+                     </children>
+                  </VBox>
+                  <VBox spacing="8.0" fx:id="vbConfirmar" managed="false" visible="false">
+                     <children>
+                        <Label styleClass="field-label" text="Confirmar contraseña" />
+                        <PasswordField fx:id="pwdConfirmar" styleClass="glass-input" />
+                     </children>
+                  </VBox>
+                  <Label fx:id="lblMensaje" styleClass="form-error" wrapText="true" />
+                  <Button fx:id="btnIngresar" defaultButton="true" maxWidth="Infinity" onAction="#onIngresar" styleClass="btn-primary" text="Ingresar" />
+               </children>
+            </VBox>
+         </children>
+      </VBox>
+   </children>
+</StackPane>

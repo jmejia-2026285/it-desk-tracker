@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.URL?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+
+<StackPane fx:controller="org.angelml.system.controller.TicketController" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
+   <stylesheets>
+      <URL value="@../resources/styles/styles.css" />
+   </stylesheets>
+   <children>
+      <VBox spacing="20.0">
+         <padding><Insets bottom="28.0" left="28.0" right="28.0" top="28.0" /></padding>
+         <children>
+            <HBox alignment="CENTER_LEFT" spacing="16.0">
+               <children>
+                  <StackPane styleClass="title-pill"><children><Label styleClass="page-title" text="Tickets de soporte" /></children></StackPane>
+                  <Region HBox.hgrow="ALWAYS" />
+                  <Button fx:id="btnNuevo" onAction="#onNuevo" styleClass="btn-primary" text="Nuevo ticket" />
+               </children>
+            </HBox>
+            <HBox alignment="CENTER_LEFT" spacing="12.0">
+               <children>
+                  <TextField fx:id="txtBuscar" promptText="Buscar por folio, cliente, equipo o descripción" styleClass="glass-input" HBox.hgrow="ALWAYS" />
+                  <ComboBox fx:id="cmbFiltroEstado" prefWidth="190.0" promptText="Todos los estados" styleClass="glass-input" />
+                  <ComboBox fx:id="cmbFiltroTecnico" prefWidth="210.0" promptText="Todos los técnicos" styleClass="glass-input" />
+               </children>
+            </HBox>
+            <HBox alignment="CENTER_LEFT" spacing="12.0">
+               <children>
+                  <Label styleClass="field-label" text="Con el ticket seleccionado:" />
+                  <Region HBox.hgrow="ALWAYS" />
+                  <ComboBox fx:id="cmbNuevoEstado" prefWidth="170.0" promptText="Nuevo estado" styleClass="glass-input" />
+                  <Button fx:id="btnCambiarEstado" onAction="#onCambiarEstado" styleClass="btn-secondary" text="Aplicar estado" />
+                  <Button fx:id="btnImprimir" onAction="#onImprimir" styleClass="btn-secondary" text="Imprimir tickets" />
+                  <Button fx:id="btnEliminar" onAction="#onEliminar" styleClass="btn-danger" text="Eliminar" />
+               </children>
+            </HBox>
+            <VBox spacing="10.0" styleClass="card" VBox.vgrow="ALWAYS">
+               <children>
+                  <TableView fx:id="tblTickets" VBox.vgrow="ALWAYS">
+         <columns>
+            <TableColumn fx:id="colFolio" prefWidth="115.0" text="FOLIO" />
+            <TableColumn fx:id="colDispositivo" prefWidth="175.0" text="DISPOSITIVO" />
+            <TableColumn fx:id="colCliente" prefWidth="150.0" text="CLIENTE" />
+            <TableColumn fx:id="colTecnico" prefWidth="130.0" text="TÉCNICO" />
+            <TableColumn fx:id="colDescripcion" prefWidth="190.0" text="DESCRIPCIÓN" />
+            <TableColumn fx:id="colIngreso" prefWidth="100.0" text="INGRESO" />
+            <TableColumn fx:id="colCompletado" prefWidth="100.0" text="COMPLETADO" />
+            <TableColumn fx:id="colEstado" prefWidth="90.0" text="ESTADO" />
+            <TableColumn fx:id="colImpreso" prefWidth="65.0" text="IMPRESO" />
+         </columns>
+         <columnResizePolicy><TableView fx:constant="CONSTRAINED_RESIZE_POLICY" /></columnResizePolicy>
+      </TableView>
+                  <Label fx:id="lblConteo" styleClass="field-label" />
+               </children>
+            </VBox>
+         </children>
+      </VBox>
+   </children>
+</StackPane>
