@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.URL?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+
+<BorderPane prefHeight="780.0" prefWidth="1280.0" styleClass="root-pane dashboard-root" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.angelml.system.controller.DashboardController">
+
+    <stylesheets>
+        <URL value="@../resources/styles/styles.css" />
+    </stylesheets>
+
+    <left>
+        <VBox minWidth="230.0" prefWidth="250.0" spacing="10.0" styleClass="sidebar">
+
+            <padding>
+                <Insets bottom="22.0" left="20.0" right="20.0" top="26.0" />
+            </padding>
+
+            <ImageView fitHeight="50.0" fitWidth="136.0" pickOnBounds="true" preserveRatio="true">
+                <image>
+                    <Image url="@../resources/media/logos/01_logo_horizontal_fondo_oscuro.png" />
+                </image>
+            </ImageView>
+
+            <Label styleClass="sidebar-caption" text="MÓDULOS" />
+
+            <Button fx:id="btnInicio" maxWidth="Infinity" onAction="#onNavegar" styleClass="nav-button" text="Inicio" />
+
+            <Button fx:id="btnDispositivos" maxWidth="Infinity" onAction="#onNavegar" styleClass="nav-button" text="Dispositivos" />
+
+            <Button fx:id="btnTickets" maxWidth="Infinity" onAction="#onNavegar" styleClass="nav-button" text="Tickets" />
+
+            <Button fx:id="btnCalendario" maxWidth="Infinity" onAction="#onNavegar" styleClass="nav-button" text="Calendario" />
+
+            <Button fx:id="btnPersonal" maxWidth="Infinity" onAction="#onNavegar" styleClass="nav-button" text="Personal" />
+
+            <Region VBox.vgrow="ALWAYS" />
+
+            <VBox spacing="5.0" styleClass="user-box">
+                <Label fx:id="lblTecnico" styleClass="user-name" />
+                <Label fx:id="lblRol" styleClass="user-role" />
+
+                <Button fx:id="btnCerrarSesion" maxWidth="Infinity" onAction="#onCerrarSesion" styleClass="btn-secondary" text="Cerrar sesión" />
+            </VBox>
+        </VBox>
+    </left>
+
+    <center>
+        <StackPane fx:id="contentHost" styleClass="content-host">
+            <children>
+                <VBox fx:id="pnlInicio" spacing="26.0" styleClass="dashboard-content">
+
+                    <padding>
+                        <Insets bottom="28.0" left="28.0" right="28.0" top="28.0" />
+                    </padding>
+
+                    <HBox alignment="CENTER_LEFT" spacing="16.0">
+                        <children>
+                            <StackPane styleClass="title-pill">
+                                <children>
+                                    <Label styleClass="page-title" text="Panel principal" />
+                                </children>
+                            </StackPane>
+
+                            <Region HBox.hgrow="ALWAYS" />
+
+                            <Label fx:id="lblFecha" styleClass="field-label" />
+                        </children>
+                    </HBox>
+
+                    <Label fx:id="lblSaludo" styleClass="section-title" />
+
+                    <HBox fillHeight="true" spacing="16.0">
+                        <children>
+                            <VBox spacing="8.0" styleClass="stat-card" HBox.hgrow="ALWAYS">
+                                <Label fx:id="lblPendientes" styleClass="stat-value" text="0" />
+                                <Label styleClass="stat-caption" text="Dispositivos pendientes" />
+                            </VBox>
+
+                            <VBox spacing="8.0" styleClass="stat-card" HBox.hgrow="ALWAYS">
+                                <Label fx:id="lblEnProceso" styleClass="stat-value" text="0" />
+                                <Label styleClass="stat-caption" text="En proceso" />
+                            </VBox>
+
+                            <VBox spacing="8.0" styleClass="stat-card" HBox.hgrow="ALWAYS">
+                                <Label fx:id="lblCompletados" styleClass="stat-value" text="0" />
+                                <Label styleClass="stat-caption" text="Completados" />
+                            </VBox>
+
+                            <VBox spacing="8.0" styleClass="stat-card" HBox.hgrow="ALWAYS">
+                                <Label fx:id="lblCitasHoy" styleClass="stat-value" text="0" />
+                                <Label styleClass="stat-caption" text="Citas pendientes hoy" />
+                            </VBox>
+                        </children>
+                    </HBox>
+
+                    <Label styleClass="section-title" text="Accesos rápidos" />
+
+                    <HBox fillHeight="true" spacing="16.0">
+                        <children>
+                            <VBox fx:id="btnAccesoRegistrar" alignment="TOP_LEFT" focusTraversable="true" maxWidth="Infinity" minHeight="190.0" onKeyPressed="#onAccesoKey" onMouseClicked="#onAcceso" spacing="8.0" styleClass="module-card" HBox.hgrow="ALWAYS">
+                                <children>
+                                    <Label styleClass="module-card-title" text="Registrar ingreso" />
+                                    <Label styleClass="module-card-desc" text="Nuevo dispositivo y tickets" wrapText="true" />
+                                    <Region VBox.vgrow="ALWAYS" />
+                                    <ImageView fitHeight="64.0" fitWidth="64.0" pickOnBounds="true" preserveRatio="true">
+                                        <image>
+                                            <Image url="@../resources/media/gif/mantenimiento-laptop.gif" />
+                                        </image>
+                                    </ImageView>
+                                </children>
+                            </VBox>
+
+                            <VBox fx:id="btnAccesoDispositivos" alignment="TOP_LEFT" focusTraversable="true" maxWidth="Infinity" minHeight="190.0" onKeyPressed="#onAccesoKey" onMouseClicked="#onAcceso" spacing="8.0" styleClass="module-card" HBox.hgrow="ALWAYS">
+                                <children>
+                                    <Label styleClass="module-card-title" text="Dispositivos" />
+                                    <Label styleClass="module-card-desc" text="Consultar, editar e imprimir" wrapText="true" />
+                                    <Region VBox.vgrow="ALWAYS" />
+                                    <ImageView fitHeight="64.0" fitWidth="64.0" pickOnBounds="true" preserveRatio="true">
+                                        <image>
+                                            <Image url="@../resources/media/gif/dispositivo-config.gif" />
+                                        </image>
+                                    </ImageView>
+                                </children>
+                            </VBox>
+
+                            <VBox fx:id="btnAccesoTickets" alignment="TOP_LEFT" focusTraversable="true" maxWidth="Infinity" minHeight="190.0" onKeyPressed="#onAccesoKey" onMouseClicked="#onAcceso" spacing="8.0" styleClass="module-card" HBox.hgrow="ALWAYS">
+                                <children>
+                                    <Label styleClass="module-card-title" text="Tickets" />
+                                    <Label styleClass="module-card-desc" text="Seguimiento de servicios" wrapText="true" />
+                                    <Region VBox.vgrow="ALWAYS" />
+                                    <ImageView fitHeight="64.0" fitWidth="64.0" pickOnBounds="true" preserveRatio="true">
+                                        <image>
+                                            <Image url="@../resources/media/gif/printed-icon.gif" />
+                                        </image>
+                                    </ImageView>
+                                </children>
+                            </VBox>
+
+                            <VBox fx:id="btnAccesoCalendario" alignment="TOP_LEFT" focusTraversable="true" maxWidth="Infinity" minHeight="190.0" onKeyPressed="#onAccesoKey" onMouseClicked="#onAcceso" spacing="8.0" styleClass="module-card" HBox.hgrow="ALWAYS">
+                                <children>
+                                    <Label styleClass="module-card-title" text="Calendario" />
+                                    <Label styleClass="module-card-desc" text="Agenda del día y la semana" wrapText="true" />
+                                    <Region VBox.vgrow="ALWAYS" />
+                                    <ImageView fitHeight="64.0" fitWidth="64.0" pickOnBounds="true" preserveRatio="true">
+                                        <image>
+                                            <Image url="@../resources/media/gif/calendario-paquete.gif" />
+                                        </image>
+                                    </ImageView>
+                                </children>
+                            </VBox>
+                        </children>
+                    </HBox>
+
+                    <Region VBox.vgrow="ALWAYS" />
+                </VBox>
+            </children>
+        </StackPane>
+    </center>
+</BorderPane>
