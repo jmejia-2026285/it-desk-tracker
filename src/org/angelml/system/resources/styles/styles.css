@@ -1,0 +1,446 @@
+/* ==========================================================================
+   IT DeskTracker - styles.css (hoja única)
+   Fusiona: styles.css + Dashboard.css + registro.css + AlertStyles.css
+            + deviceRegisterStyle.css
+   Tema: "liquid glass" sobre media/background/fondo-montanas.jpg
+   Ruta de este archivo: resources/styles/styles.css
+   ========================================================================== */
+
+/* ---------- 1. BASE / FONDO ------------------------------------------------ */
+
+.root {
+    -fx-font-family: "Segoe UI", "SF Pro Display", "Helvetica Neue", Arial, sans-serif;
+    -fx-font-size: 12px;
+    -fx-focus-color: #0A64FF;
+    -fx-faint-focus-color: rgba(10,100,255,0.00);
+}
+
+/* Tokens del cristal: en .root-pane tambien, por si la raiz de la escena es otra */
+.root, .root-pane {
+    /* Tokens del cristal (looked-up colors) */
+    -glass-tint:        rgba(14, 20, 14, 0.50);
+    -glass-sheen-top:   rgba(255,255,255,0.20);
+    -glass-sheen-bot:   rgba(255,255,255,0.05);
+    -glass-edge-light:  rgba(255,255,255,0.90);
+    -glass-edge-dark:   rgba(255,255,255,0.30);
+    -accent:            #0A64FF;
+}
+
+/* La URL es relativa a ESTE css: resources/styles -> resources/media/background */
+.root-pane {
+    -fx-background-color: transparent;
+    -fx-background-image: url("../media/background/fondo-montanas.jpg");
+    -fx-background-size: cover;
+    -fx-background-position: center center;
+    -fx-background-repeat: no-repeat;
+    -fx-text-base-color: #ffffff;
+}
+
+/* Las vistas incrustadas en el dashboard NO deben repintar el fondo */
+.content-host .root-pane {
+    -fx-background-color: transparent;
+    -fx-background-image: none;
+}
+
+.logo-box { -fx-background-color: transparent; -fx-padding: 0; }
+
+/* ---------- 2. TEXTO ------------------------------------------------------- */
+
+.page-title    { -fx-text-fill: #ffffff; -fx-font-size: 16px; -fx-font-weight: bold; }
+.section-title { -fx-text-fill: #ffffff; -fx-font-size: 15px; -fx-font-weight: bold; }
+.field-label   { -fx-text-fill: rgba(255,255,255,0.78); -fx-font-size: 12px; }
+.form-error    { -fx-text-fill: #FF6B6B; -fx-font-size: 12px; }
+
+/* ---------- 3. SUPERFICIES DE CRISTAL -------------------------------------- */
+/* Capas: 0 tinte oscuro (legibilidad) | 1 brillo diagonal | 2 reflejo superior */
+
+.card {
+    -fx-background-color:
+        -glass-tint,
+        linear-gradient(to bottom right, -glass-sheen-top, -glass-sheen-bot),
+        linear-gradient(to bottom, rgba(255,255,255,0.22) 0%, rgba(255,255,255,0.00) 28%);
+    -fx-background-insets: 0, 0, 1;
+    -fx-background-radius: 24, 24, 23;
+    -fx-border-color: linear-gradient(to bottom right, -glass-edge-light, -glass-edge-dark 45%, rgba(255,255,255,0.28));
+    -fx-border-radius: 24;
+    -fx-border-width: 1.2;
+    -fx-padding: 22;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.50), 34, 0.20, 0, 12);
+}
+
+.title-pill {
+    -fx-background-color:
+        -glass-tint,
+        linear-gradient(to bottom right, rgba(255,255,255,0.26), rgba(255,255,255,0.08)),
+        linear-gradient(to bottom, rgba(255,255,255,0.28) 0%, rgba(255,255,255,0.00) 55%);
+    -fx-background-insets: 0, 0, 1;
+    -fx-background-radius: 30, 30, 29;
+    -fx-border-color: linear-gradient(to bottom right, -glass-edge-light, -glass-edge-dark 55%, rgba(255,255,255,0.30));
+    -fx-border-radius: 30;
+    -fx-border-width: 1.2;
+    -fx-padding: 10 26 10 26;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.40), 22, 0.20, 0, 7);
+}
+
+/* ---------- 4. INPUTS ------------------------------------------------------ */
+
+.glass-input {
+    -fx-background-color: rgba(255,255,255,0.10);
+    -fx-background-radius: 12;
+    -fx-border-color: linear-gradient(to bottom, rgba(255,255,255,0.32), rgba(255,255,255,0.10));
+    -fx-border-radius: 12;
+    -fx-border-width: 1;
+    -fx-padding: 8 12 8 12;
+    -fx-text-fill: #ffffff;
+    -fx-prompt-text-fill: rgba(255,255,255,0.45);
+    -fx-highlight-fill: rgba(10,100,255,0.45);
+    -fx-control-inner-background: transparent;
+}
+.glass-input:hover   { -fx-background-color: rgba(255,255,255,0.15); -fx-border-color: rgba(255,255,255,0.40); }
+.glass-input:focused {
+    -fx-border-color: #4A92FF;
+    -fx-effect: dropshadow(gaussian, rgba(10,100,255,0.55), 14, 0.20, 0, 0);
+}
+
+.glass-input .content { -fx-background-color: transparent; -fx-background-radius: 12; }
+.glass-input .text    { -fx-fill: #ffffff; -fx-highlight-fill: rgba(10,100,255,0.45); }
+
+.glass-input .scroll-pane,
+.glass-input .scroll-pane .viewport,
+.glass-input .scroll-pane .content { -fx-background-color: transparent; }
+.glass-input .scroll-bar:vertical,
+.glass-input .scroll-bar:horizontal { -fx-background-color: transparent; }
+.glass-input .scroll-bar .thumb { -fx-background-color: rgba(255,255,255,0.22); -fx-background-radius: 6; }
+
+/* ---------- 5. COMBOBOX / DATEPICKER --------------------------------------- */
+
+.combo-box.glass-input,
+.date-picker.glass-input { -fx-padding: 0; }
+
+.combo-box .list-cell { -fx-text-fill: #ffffff; -fx-background-color: transparent; -fx-padding: 8 12 8 12; }
+.combo-box .text-field,
+.date-picker .text-field { -fx-background-color: transparent; -fx-text-fill: #ffffff; -fx-padding: 8 12 8 12; }
+.combo-box .arrow-button,
+.date-picker .arrow-button { -fx-background-color: transparent; }
+.combo-box .arrow,
+.date-picker .arrow { -fx-background-color: rgba(255,255,255,0.80); }
+.date-picker .date-picker-popup-button { -fx-background-color: transparent; }
+
+/* Los popups son ventanas aparte: no ven el fondo, por eso van más sólidos */
+.combo-box-popup .list-view {
+    -fx-background-color: #111A2C;
+    -fx-border-color: rgba(255,255,255,0.22);
+    -fx-border-radius: 10;
+    -fx-background-radius: 10;
+}
+.combo-box-popup .list-cell { -fx-background-color: transparent; -fx-text-fill: #ffffff; -fx-padding: 8 12 8 12; }
+.combo-box-popup .list-cell:hover,
+.combo-box-popup .list-cell:filled:selected { -fx-background-color: rgba(10,100,255,0.45); }
+
+.date-picker-popup {
+    -fx-background-color: #111A2C;
+    -fx-border-color: rgba(255,255,255,0.22);
+    -fx-border-radius: 10;
+    -fx-background-radius: 10;
+}
+.date-picker-popup .month-year-pane { -fx-background-color: transparent; }
+.date-picker-popup .label,
+.date-picker-popup .day-cell,
+.date-picker-popup .week-number-cell { -fx-text-fill: #ffffff; }
+.date-picker-popup .day-name-cell { -fx-text-fill: rgba(255,255,255,0.55); }
+.date-picker-popup .day-cell { -fx-background-color: transparent; }
+.date-picker-popup .day-cell:hover { -fx-background-color: rgba(255,255,255,0.14); }
+.date-picker-popup .day-cell:selected,
+.date-picker-popup .day-cell:today { -fx-background-color: rgba(10,100,255,0.55); }
+.date-picker-popup .day-cell:empty,
+.date-picker-popup .day-cell:disabled { -fx-background-color: transparent; -fx-text-fill: rgba(255,255,255,0.25); }
+.date-picker-popup .spinner .button,
+.date-picker-popup .spinner .button .left-arrow,
+.date-picker-popup .spinner .button .right-arrow { -fx-background-color: transparent; }
+.date-picker-popup .spinner .button .left-arrow,
+.date-picker-popup .spinner .button .right-arrow { -fx-background-color: rgba(255,255,255,0.80); }
+
+/* ---------- 6. CHECKBOX ---------------------------------------------------- */
+
+.check-light { -fx-text-fill: #ffffff; }
+.check-light .box { -fx-background-color: rgba(255,255,255,0.10); -fx-border-color: rgba(255,255,255,0.35); -fx-border-radius: 4; -fx-background-radius: 4; }
+.check-light:selected .mark { -fx-background-color: #ffffff; }
+.check-light:selected .box  { -fx-background-color: #0A64FF; -fx-border-color: #0A64FF; }
+
+/* ---------- 7. BOTONES ----------------------------------------------------- */
+
+.btn-primary {
+    -fx-background-color:
+        linear-gradient(to bottom, #3C8BFF, #0A64FF),
+        linear-gradient(to bottom, rgba(255,255,255,0.40), rgba(255,255,255,0.00) 55%);
+    -fx-background-insets: 0, 1;
+    -fx-background-radius: 20, 19;
+    -fx-text-fill: #ffffff;
+    -fx-font-weight: bold;
+    -fx-font-size: 13px;
+    -fx-cursor: hand;
+    -fx-padding: 10 24 10 24;
+    -fx-min-width: 120;
+    -fx-effect: dropshadow(gaussian, rgba(10,100,255,0.55), 18, 0.30, 0, 4);
+}
+.btn-primary:hover {
+    -fx-background-color:
+        linear-gradient(to bottom, #5AA0FF, #1F76FF),
+        linear-gradient(to bottom, rgba(255,255,255,0.45), rgba(255,255,255,0.00) 55%);
+    -fx-effect: dropshadow(gaussian, rgba(10,100,255,0.70), 22, 0.30, 0, 6);
+}
+.btn-primary:pressed {
+    -fx-background-color:
+        linear-gradient(to bottom, #1F6FE8, #0A55D8),
+        linear-gradient(to bottom, rgba(255,255,255,0.20), rgba(255,255,255,0.00) 55%);
+    -fx-effect: dropshadow(gaussian, rgba(10,100,255,0.35), 8, 0.30, 0, 2);
+}
+.btn-primary:disabled { -fx-opacity: 0.45; }
+
+.btn-secondary {
+    -fx-background-color:
+        rgba(255,255,255,0.12),
+        linear-gradient(to bottom, rgba(255,255,255,0.22), rgba(255,255,255,0.00) 60%);
+    -fx-background-insets: 0, 1;
+    -fx-background-radius: 20, 19;
+    -fx-border-color: linear-gradient(to bottom, rgba(255,255,255,0.45), rgba(255,255,255,0.12));
+    -fx-border-radius: 20;
+    -fx-border-width: 1;
+    -fx-text-fill: rgba(255,255,255,0.92);
+    -fx-font-size: 13px;
+    -fx-cursor: hand;
+    -fx-padding: 10 22 10 22;
+    -fx-min-width: 100;
+}
+.btn-secondary:hover {
+    -fx-background-color:
+        rgba(255,255,255,0.22),
+        linear-gradient(to bottom, rgba(255,255,255,0.28), rgba(255,255,255,0.00) 60%);
+    -fx-border-color: rgba(255,255,255,0.55);
+}
+.btn-secondary:pressed { -fx-background-color: rgba(255,255,255,0.30); }
+.btn-secondary:disabled { -fx-opacity: 0.4; }
+
+.btn-danger {
+    -fx-background-color: rgba(255,80,80,0.18);
+    -fx-background-radius: 20;
+    -fx-border-color: rgba(255,80,80,0.60);
+    -fx-border-radius: 20;
+    -fx-border-width: 1;
+    -fx-text-fill: #FF9A9A;
+    -fx-font-size: 13px;
+    -fx-cursor: hand;
+    -fx-padding: 10 22 10 22;
+    -fx-min-width: 100;
+}
+.btn-danger:hover { -fx-background-color: rgba(255,80,80,0.32); }
+.btn-danger:disabled { -fx-opacity: 0.4; }
+
+.toggle-range {
+    -fx-background-color: rgba(255,255,255,0.12);
+    -fx-background-radius: 16;
+    -fx-border-color: rgba(255,255,255,0.20);
+    -fx-border-radius: 16;
+    -fx-text-fill: rgba(255,255,255,0.85);
+    -fx-padding: 8 18 8 18;
+    -fx-cursor: hand;
+}
+.toggle-range:selected { -fx-background-color: #0A64FF; -fx-border-color: #4A92FF; -fx-text-fill: #ffffff; -fx-font-weight: bold; }
+
+/* ---------- 8. ZONA DE VISTA PREVIA (registro) ----------------------------- */
+
+.preview-zone {
+    -fx-background-color: rgba(255,255,255,0.06);
+    -fx-background-radius: 16;
+    -fx-border-color: rgba(255,255,255,0.35);
+    -fx-border-radius: 16;
+    -fx-border-width: 1;
+    -fx-border-style: segments(6, 8) line-cap round;
+    -fx-padding: 12;
+    -fx-cursor: hand;
+}
+.preview-zone:hover { -fx-border-color: rgba(74,146,255,0.95); }
+.preview-hint { -fx-text-fill: rgba(255,255,255,0.55); -fx-font-size: 12px; }
+
+/* ---------- 9. SCROLL ------------------------------------------------------ */
+
+.module-scroll,
+.module-scroll > .viewport { -fx-background-color: transparent; }
+
+.scroll-bar { -fx-background-color: transparent; }
+.scroll-bar .track { -fx-background-color: transparent; }
+.scroll-bar .thumb { -fx-background-color: rgba(255,255,255,0.28); -fx-background-radius: 6; }
+.scroll-bar .increment-button,
+.scroll-bar .decrement-button { -fx-padding: 0; -fx-background-color: transparent; }
+.scroll-bar .increment-arrow,
+.scroll-bar .decrement-arrow { -fx-padding: 0; }
+
+/* ---------- 10. TABLAS ----------------------------------------------------- */
+
+.table-view { -fx-background-color: transparent; -fx-padding: 0; -fx-table-cell-border-color: transparent; }
+.table-view .column-header-background { -fx-background-color: rgba(255,255,255,0.10); -fx-background-radius: 10; }
+.table-view .column-header,
+.table-view .filler { -fx-background-color: transparent; -fx-size: 36px; -fx-border-color: transparent; }
+.table-view .column-header .label { -fx-text-fill: rgba(255,255,255,0.78); -fx-font-size: 11px; -fx-font-weight: bold; -fx-alignment: CENTER-LEFT; }
+.table-view .column-resize-line { -fx-background-color: transparent; }
+.table-view .placeholder .label { -fx-text-fill: rgba(255,255,255,0.55); -fx-font-size: 13px; }
+
+.table-row-cell,
+.table-row-cell:odd { -fx-background-color: transparent; -fx-border-color: transparent transparent rgba(255,255,255,0.08) transparent; -fx-cell-size: 38px; }
+.table-row-cell:hover { -fx-background-color: rgba(255,255,255,0.08); }
+.table-row-cell:empty,
+.table-row-cell:empty:odd { -fx-background-color: transparent; -fx-border-color: transparent; }
+.table-row-cell:filled:selected,
+.table-row-cell:filled:selected:focused { -fx-background-color: rgba(10,100,255,0.40); }
+
+.table-cell { -fx-text-fill: #ffffff; -fx-alignment: CENTER-LEFT; -fx-border-color: transparent; }
+.table-row-cell:filled:selected .table-cell { -fx-text-fill: #ffffff; }
+.table-cell.estado-pendiente  { -fx-text-fill: #FFC857; -fx-font-weight: bold; }
+.table-cell.estado-proceso    { -fx-text-fill: #5AB0FF; -fx-font-weight: bold; }
+.table-cell.estado-completado { -fx-text-fill: #4ADE80; -fx-font-weight: bold; }
+
+/* ---------- 11. TICKET IMPRIMIBLE (se mantiene blanco a propósito) --------- */
+
+.ticket-container {
+    -borde: #CBD2DC;
+    -acento: #0A64FF;
+    -fondo: #EEF1F6;
+    -texto: #111827;
+    -texto-suave: #6B7280;
+    -fx-border-color: -borde;
+    -fx-border-width: 1;
+    -fx-padding: 15;
+    -fx-background-color: white;
+}
+.ticket-equipo  { -fx-font-size: 11px; }
+.ticket-cliente { -fx-font-size: 10px; }
+.ticket-titulo  { -fx-font-size: 14px; -fx-font-weight: bold; -fx-text-fill: -acento; }
+.ticket-label   { -fx-font-size: 9px;  -fx-text-fill: -texto-suave; }
+.ticket-valor   { -fx-font-size: 11px; -fx-font-weight: bold; -fx-text-fill: -texto; }
+.ticket-codigo  { -fx-font-size: 24px; -fx-font-weight: bold; -fx-text-fill: -acento; }
+
+/* ---------- 12. ALERTAS (antes AlertStyles.css) ---------------------------- */
+/* El Stage de la alerta es una ventana aparte y transparente: no hay fondo
+   detrás que "ver", así que el cristal va más opaco para que se lea bien. */
+
+.alert-root { -fx-background-color: transparent; }
+
+.alert-card {
+    -fx-background-color:
+        linear-gradient(to bottom, #1A2742, #0D1526),
+        linear-gradient(to bottom, rgba(255,255,255,0.14), rgba(255,255,255,0.00) 35%);
+    -fx-background-insets: 0, 1;
+    -fx-background-radius: 24, 23;
+    -fx-border-color: linear-gradient(to bottom right, rgba(255,255,255,0.60), rgba(255,255,255,0.08) 50%, rgba(255,255,255,0.25));
+    -fx-border-radius: 24;
+    -fx-border-width: 1.2;
+    -fx-padding: 28 32 26 32;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.65), 30, 0.25, 0, 10);
+}
+.alert-title   { -fx-text-fill: #ffffff; -fx-font-size: 17px; -fx-font-weight: bold; }
+.alert-message { -fx-text-fill: rgba(255,255,255,0.80); -fx-font-size: 13px; -fx-text-alignment: CENTER; -fx-padding: 0 0 8 0; }
+
+/* ==========================================================================
+   13. DASHBOARD  (todo cuelga de .dashboard-root, definido en DashboardView)
+   ========================================================================== */
+
+.dashboard-root .page-title    { -fx-font-size: 23px; }
+.dashboard-root .section-title { -fx-text-fill: #f5f7ff; -fx-font-size: 18px; }
+.dashboard-root .field-label   { -fx-text-fill: rgba(235,241,255,0.80); -fx-font-size: 13px; }
+.dashboard-root .title-pill    { -fx-background-radius: 18, 18, 17; -fx-border-radius: 18; -fx-padding: 12 20 12 20; }
+
+.content-host,
+.dashboard-content { -fx-background-color: transparent; }
+
+/* Barra lateral: cristal esmerilado */
+.sidebar {
+    -fx-background-color:
+        rgba(14, 20, 14, 0.52),
+        linear-gradient(to bottom right, rgba(255,255,255,0.20), rgba(255,255,255,0.05)),
+        linear-gradient(to right, rgba(255,255,255,0.12) 0%, rgba(255,255,255,0.00) 18%);
+    -fx-background-insets: 0, 0, 1 1 1 0;
+    -fx-background-radius: 0 26 26 0, 0 26 26 0, 0 25 25 0;
+    -fx-border-color: linear-gradient(to bottom, rgba(255,255,255,0.45), rgba(255,255,255,0.10));
+    -fx-border-width: 0 1.2 0 0;
+    -fx-border-radius: 0 26 26 0;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.40), 26, 0.15, 6, 0);
+}
+.sidebar-caption {
+    -fx-text-fill: rgba(225,235,255,0.72);
+    -fx-font-size: 11px;
+    -fx-font-weight: bold;
+    -fx-padding: 12 0 5 4;
+}
+
+.stat-caption { -fx-text-fill: rgba(235,241,255,0.80); -fx-font-size: 12px; }
+.stat-value   { -fx-text-fill: #ffffff; -fx-font-size: 29px; -fx-font-weight: bold; }
+.user-name    { -fx-text-fill: white; -fx-font-size: 14px; -fx-font-weight: bold; }
+.user-role    { -fx-text-fill: rgba(235,241,255,0.70); -fx-font-size: 12px; }
+
+.stat-card,
+.user-box {
+    -fx-background-color:
+        -glass-tint,
+        linear-gradient(to bottom right, rgba(255,255,255,0.20), rgba(255,255,255,0.05)),
+        linear-gradient(to bottom, rgba(255,255,255,0.20) 0%, rgba(255,255,255,0.00) 30%);
+    -fx-background-insets: 0, 0, 1;
+    -fx-background-radius: 20, 20, 19;
+    -fx-border-color: linear-gradient(to bottom right, -glass-edge-light, -glass-edge-dark 45%, rgba(255,255,255,0.28));
+    -fx-border-radius: 20;
+    -fx-border-width: 1.2;
+    -fx-padding: 20;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.32), 20, 0.12, 0, 6);
+}
+.user-box { -fx-padding: 15; }
+
+.nav-button {
+    -fx-background-color: transparent;
+    -fx-background-radius: 13;
+    -fx-text-fill: rgba(242,246,255,0.88);
+    -fx-font-size: 13px;
+    -fx-alignment: CENTER_LEFT;
+    -fx-padding: 12 15 12 15;
+    -fx-cursor: hand;
+    -fx-border-color: transparent;
+    -fx-border-radius: 13;
+}
+.nav-button:hover {
+    -fx-background-color: rgba(255,255,255,0.14);
+    -fx-border-color: rgba(255,255,255,0.28);
+    -fx-text-fill: white;
+}
+.nav-button:pressed { -fx-background-color: rgba(255,255,255,0.22); }
+
+.module-card {
+    -fx-background-color:
+        -glass-tint,
+        linear-gradient(to bottom right, rgba(255,255,255,0.22), rgba(255,255,255,0.06)),
+        linear-gradient(to bottom, rgba(255,255,255,0.20) 0%, rgba(255,255,255,0.00) 30%);
+    -fx-background-insets: 0, 0, 1;
+    -fx-background-radius: 20, 20, 19;
+    -fx-border-color: linear-gradient(to bottom right, -glass-edge-light, -glass-edge-dark 45%, rgba(255,255,255,0.28));
+    -fx-border-radius: 20;
+    -fx-border-width: 1.2;
+    -fx-padding: 20;
+    -fx-cursor: hand;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.30), 18, 0.12, 0, 6);
+}
+.module-card:hover {
+    -fx-background-color:
+        rgba(24, 34, 22, 0.44),
+        linear-gradient(to bottom right, rgba(255,255,255,0.32), rgba(255,255,255,0.10)),
+        linear-gradient(to bottom, rgba(255,255,255,0.28) 0%, rgba(255,255,255,0.00) 35%);
+    -fx-border-color: rgba(255,255,255,0.85);
+    -fx-effect: dropshadow(gaussian, rgba(110,165,255,0.40), 24, 0.18, 0, 6);
+    -fx-translate-y: -2;
+}
+.module-card:pressed {
+    -fx-background-color: rgba(14,20,14,0.55), rgba(255,255,255,0.14), rgba(255,255,255,0.00);
+    -fx-translate-y: 0;
+}
+.module-card:focused {
+    -fx-border-color: #4A92FF;
+    -fx-border-width: 2;
+}
+.module-card-title { -fx-text-fill: #ffffff; -fx-font-size: 15px; -fx-font-weight: bold; }
+.module-card-desc  { -fx-text-fill: rgba(235,241,255,0.80); -fx-font-size: 12px; }
