@@ -3,11 +3,13 @@
 
 
 Aplicación de escritorio para registrar los equipos que ingresan a un área de soporte técnico, darles seguimiento con tickets y agendar las citas de los técnicos. Está hecha en Java con JavaFX y guarda todo en una base de datos SQLite local.
+
+
 <img width="190" height="190" alt="07_icono_navy_transparente" src="https://github.com/user-attachments/assets/e86d9f0b-752d-46a1-8546-268f49be37f2" />
 <img width="169" height="212" alt="02_logo_vertical_navy_transparente" src="https://github.com/user-attachments/assets/53f416ee-7db3-46cc-bc13-f536a4a10b7c" />
 
 
-## Módulos<img width="50" height="50" alt="login-ventana" src="https://github.com/user-attachments/assets/72d5c30f-d85f-4c86-a679-d13b383d989f" />
+## Módulos        <img width="50" height="50" alt="login-ventana" src="https://github.com/user-attachments/assets/72d5c30f-d85f-4c86-a679-d13b383d989f" />
 
 
 **Inicio de sesión.** Cada técnico entra con correo y contraseña. Si la base de datos no tiene técnicos, la primera pantalla pide crear la cuenta del administrador.
